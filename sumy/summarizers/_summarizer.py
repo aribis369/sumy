@@ -42,10 +42,12 @@ class AbstractSummarizer(object):
         # sort sentences by rating in descending order
         infos = sorted(infos, key=attrgetter("rating"), reverse=True)
         # get `count` first best rated sentences
+        '''
         if not isinstance(count, ItemsCount):
             count = ItemsCount(count)
         infos = count(infos)
         # sort sentences by their order in document
         infos = sorted(infos, key=attrgetter("order"))
+        '''
 
         return tuple(i.sentence for i in infos)
